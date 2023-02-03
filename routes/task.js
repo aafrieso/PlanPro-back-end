@@ -8,6 +8,7 @@ const router = Router ()
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, taskCtrl.create)
+router.get('/', checkAuth, taskCtrl.index)
 
 
 
