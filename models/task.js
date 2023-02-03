@@ -1,8 +1,29 @@
 import mongoose from "mongoose"
 
-const Schema = mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-const stepListSchema = new Schema(
+
+const goalListSchema = new Schema (
+  title: {
+    type: String,
+    required: true
+  },
+    owner: { type: Schema.Types.ObjectId, ref: 'Profile'},
+    tasks: { type: Schema.Types.ObjectId, ref: 'Task'}
+)
+
+
+const stepSchema = new Schema (
+  title: {
+    type: String,
+    required: true
+  },
+    owner: { type: Schema.Types.ObjectId, ref: 'Profile'},
+)
+
+
+
+const taskSchema = new Schema(
   {
       note: {
           type: String,
@@ -11,7 +32,7 @@ const stepListSchema = new Schema(
       taskName: "string",
       date: "number",
       time: "number",
-      stepList: [stepListSchema],
+      steps: [stepSchema],
       categroy: { type: Schema.Types.ObjectId, ref: 'Category'},
       owner: { type: Schema.Types.ObjectId, ref: 'Profile'}
   }
