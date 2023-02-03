@@ -16,10 +16,13 @@ const taskSchema = new Schema(
     note: {
       type: String,
       required: true,
+      default: function() {
+        return new Date().getFullYear()
+      }
     },
     taskName: "string",
-    date: "number",
-    time: "number",
+    date: Date,
+    time: "string",
     steps: [stepSchema],
     categroy: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
     owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
