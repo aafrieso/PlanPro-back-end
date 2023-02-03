@@ -1,4 +1,8 @@
-const taskSchema = new Schema(
+import mongoose from "mongoose"
+
+const Schema = mongoose from 'mongoose'
+
+const stepListSchema = new Schema(
   {
       note: {
           type: String,
@@ -7,7 +11,7 @@ const taskSchema = new Schema(
       taskName: "string",
       date: "number",
       time: "number",
-      stepList: [stepList],
+      stepList: [stepListSchema],
       categroy: { type: Schema.Types.ObjectId, ref: 'Category'},
       owner: { type: Schema.Types.ObjectId, ref: 'Profile'}
   }
