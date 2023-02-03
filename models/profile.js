@@ -6,8 +6,8 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   photo: String,
-  goals: [{ type: Schema.Types.ObjectId, ref: 'GoalList'}]
-},{
+  goals: [{ type: Schema.Types.ObjectId, ref: 'GoalList' }]
+}, {
   timestamps: true,
 })
 

@@ -3,10 +3,10 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 
-const categorySchema = new Schema ({
+const categorySchema = new Schema({
   title: {
     type: String,
-    required: true,
+    default: 'Life',
     enum: ['Work', 'Life', 'Event']
   },
   color: {
@@ -14,7 +14,9 @@ const categorySchema = new Schema ({
     default: 'Grey',
     enum: ['Grey', 'Green', 'Yellow', 'Blue', 'Pink']
   },
+  timestamps: true,
 })
+
 
 const Category = mongoose.model('Category', categorySchema)
 
