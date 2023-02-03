@@ -1,4 +1,5 @@
 import { Router } from "express";
+import * as taskCtrl from '../controllers/task.js'
 import { decodeUserFromToken, checkAuth } from "../middleware/auth.js";
 
 const router = Router ()
@@ -6,6 +7,7 @@ const router = Router ()
 
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
+router.post('/', checkAuth, taskCtrl.create)
 
 
 
