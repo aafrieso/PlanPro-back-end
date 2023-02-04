@@ -11,6 +11,7 @@ router.post('/', checkAuth, taskCtrl.create)
 router.get('/', checkAuth, taskCtrl.index)
 router.get('/:id', checkAuth, taskCtrl.show)
 router.put('/:id', checkAuth, taskCtrl.update)
+router.delete('/:id', checkAuth, taskCtrl.delete)
 
 
 
