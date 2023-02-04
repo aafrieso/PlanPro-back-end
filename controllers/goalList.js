@@ -14,9 +14,20 @@ const createGoal = async (req, res) => {
   })
 }
 
+const showGoal = async (req, res) => {
+  goalList.findbyId(req.params.id)
+  .then(event => {
+    res.json(goalList)
+  })
+  .catch(err => {
+    console.log(err)
+    res.json(err)
+  })
+}
 
 
 
 export {
-  createGoal
+  createGoal,
+  showGoal
 }
