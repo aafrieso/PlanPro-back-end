@@ -49,8 +49,16 @@ const deleteGoal = async (req, res) => {
 
 const updateGoal = async (req,res) => {
   for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[]
+    if (req.body[key] === '') delete req.body[key]
   }
+  goalList.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(updatedGoalList => {
+    res.json(updatedGoalList)
+  })
+  .catch(err => {
+    console.log(err)
+    res.json(err)
+  })
 }
 
 export {
