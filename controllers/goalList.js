@@ -36,9 +36,27 @@ const goalIndex = async (req, res) => {
   })
 }
 
+const deleteGoal = async (req, res) => {
+  goalList.findByIdAndDelete(req.params.id)
+  .then(deletedGoalList => {
+    res.json(deletedGoalList)
+  })
+  .catch(err => {
+    console.log(err)
+    res.json(err)
+  })
+}
+
+const updateGoal = async (req,res) => {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[]
+  }
+}
 
 export {
   createGoal,
   showGoal,
-  goalIndex
+  goalIndex,
+  deleteGoal as delete,
+  updateGoal as update 
 }
