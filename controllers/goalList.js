@@ -1,10 +1,10 @@
-import { Profile } from "../models/profile.js"
-import { GoalList } from "../models/goalList"
+import { Profile } from "../models/profile.js";
+import { GoalList } from "../models/goalList.js";
 
 const create = async (req, res) => {
   try {
     req.body.owner = req.user.profile
-    const goalList = await goalList.create(req.body)
+    const goalList = await GoalList.create(req.body)
     const profile = await Profile.findByIdAndUpdate(
       req.user.profile,
       { $push: { goalLists: goalList }},
@@ -20,9 +20,9 @@ const create = async (req, res) => {
 
 const index = async (req, res) => {
   try {
-    const goalList = await goalList.find({})
+    const goalList = await GoalList.find({})
       .populate('owner')
-      sort({ createdAt: 'desc' })
+      .sort({ createdAt: 'desc' })
     res.status(200).json(goalList)
   } catch (err) {
     res.status(500).json(err)
@@ -31,7 +31,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
   try {
-    const goalList = await goalList.findById(req.params.id).populate("owner")
+    const goalList = await GoalList.findById(req.params.id).populate("owner")
     res.status(200).json(goalList)
   } catch (err) {
     res.status(500).json(err)
@@ -40,7 +40,7 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const goalList = await goalList.findByIdAndUpdate(req.params.id, req.body, {
+    const goalList = await GoalList.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     }).populate('owner')
     res.status(200).json(goalList)
@@ -51,7 +51,7 @@ const update = async (req, res) => {
 
 const deleteGoal = async (req, res) => {
   try {
-    const goalList = await goalList.findByIdAndDelete(req.params.id)
+    const goalList = await GoalList.findByIdAndDelete(req.params.id)
     const profile = await Profile.findById(req.user.profile)
     profile.tenants.remove({ _id: req.params.id })
     await profile.save()
