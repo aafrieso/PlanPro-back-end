@@ -25,9 +25,20 @@ const showGoal = async (req, res) => {
   })
 }
 
+const goalIndex = async (req, res) => {
+  goalList.find({})
+  .then(goalList => {
+    res.json(goalList)
+  })
+  .catch(err => {
+    console.log(err)
+    res.json(err)
+  })
+}
 
 
 export {
   createGoal,
-  showGoal
+  showGoal,
+  goalIndex
 }
