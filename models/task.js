@@ -24,7 +24,7 @@ const taskSchema = new Schema(
     date: Date,
     time: "string",
     steps: [stepSchema],
-    categroy: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+    category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
     owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
   }
 )
