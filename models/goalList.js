@@ -15,7 +15,6 @@ const goalListSchema = new Schema({
 })
 
 
-
 const GoalList = mongoose.model('GoalList', goalListSchema)
 
 export { GoalList }
