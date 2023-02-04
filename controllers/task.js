@@ -72,8 +72,6 @@ const createStep = async (req, res) => {
     task.steps.push(req.body)
     await task.save()
     const newStep = task.steps[task.steps.length]
-    const profile = await Profile.findById(req.user.profile)
-    newStep.owner = profile
     res.status(201).json(newStep)
   } catch (error) {
     res.status(500).json(error)
