@@ -53,9 +53,22 @@ const update = async (req, res) => {
   }
 }
 
+const deleteTask = async (req, res) => {
+  try {
+    const task = await Task.findByIdAndDelete(req.params.id)
+    const profile = await Profile.findById(req.user.profile)
+    profile.task.remove({_id: req.params.id})
+    await profile.save()
+    res.status(200).json(blog)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 export {
   create,
   index,
   show,
   update,
+  deleteTask as delete
 }
