@@ -1,6 +1,7 @@
-import { goalList } from "../models/goalList";
+import { Profile } from "../models/profile.js"
+import { GoalList } from "../models/goalList"
 
-const createGoal = async (req, res) => {
+const create = async (req, res) => {
   try {
     req.body.owner = req.user.profile
     const goalList = await goalList.create(req.body)
@@ -17,7 +18,7 @@ const createGoal = async (req, res) => {
     }
   }
 
-const goalIndex = async (req, res) => {
+const index = async (req, res) => {
   try {
     const goalList = await goalList.find({})
       .populate('owner')
@@ -28,7 +29,7 @@ const goalIndex = async (req, res) => {
   }
 }
 
-const showGoal = async (req, res) => {
+const show = async (req, res) => {
   try {
     const goalList = await goalList.findById(req.params.id).populate("owner")
     res.status(200).json(goalList)
@@ -37,7 +38,7 @@ const showGoal = async (req, res) => {
   }
 }
 
-const updateGoal = async (req, res) => {
+const update = async (req, res) => {
   try {
     const goalList = await goalList.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -61,9 +62,9 @@ const deleteGoal = async (req, res) => {
 }
 
 export {
-  createGoal,
-  showGoal,
-  goalIndex,
+  create,
+  show,
+  index,
   deleteGoal as delete,
-  updateGoal as update 
+  update as update 
 }
