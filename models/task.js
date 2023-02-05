@@ -16,9 +16,6 @@ const taskSchema = new Schema(
     note: {
       type: String,
       required: true,
-      default: function() {
-        return new Date().getFullYear()
-      }
     },
     taskName: "string",
     date: Date,
