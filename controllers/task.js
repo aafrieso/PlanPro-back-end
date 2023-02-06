@@ -33,7 +33,6 @@ const show = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id)
       .populate('owner')
-      .populate('note.owner')
     res.status(200).json(task)
   } catch (error) {
     res.status(500).json(error)
@@ -56,10 +55,7 @@ const update = async (req, res) => {
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id)
-    const profile = await Profile.findById(req.user.profile)
-    profile.task.remove({_id: req.params.id})
-    await profile.save()
-    res.status(200).json(blog)
+    res.status(200).json(task)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -67,7 +63,6 @@ const deleteTask = async (req, res) => {
 
 const createStep = async (req, res) => {
   try {
-    req.body.owner = req.user.profile
     const task = await Task.findById(req.params.id)
     task.steps.push(req.body)
     await task.save()
