@@ -8,4 +8,5 @@ const router = Router ()
 router.use(decodeUserFromToken)
 router.post('/task/:id/categories', checkAuth, categoryCtrl.createCategory) 
 
+
 export { router }
