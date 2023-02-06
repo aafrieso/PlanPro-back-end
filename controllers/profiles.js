@@ -1,6 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { v2 as cloudinary } from 'cloudinary'
-import { GoalList } from '../models/goalList.js'
+// import { GoalList } from '../models/goalList.js'
 
 function index(req, res) {
   Profile.find({})
