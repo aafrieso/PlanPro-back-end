@@ -1,6 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { v2 as cloudinary } from 'cloudinary'
-// import { GoalList } from '../models/goalList.js'
+import { GoalList } from '../models/goalList.js'
 
 function index(req, res) {
   Profile.find({})
@@ -32,10 +32,11 @@ function addPhoto(req, res) {
 
 const showProfile = async (req, res) => {
   try {
-    const profile = await Profile.find(req.user.profile)
+    const profile = await Profile.findById(req.user.profile)
     .populate('goals')
     res.status(201).json(profile)
   } catch (error) {
+    console.log(error);
     res.status(500).json(error)
   }
 }
