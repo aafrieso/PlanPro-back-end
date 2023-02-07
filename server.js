@@ -13,6 +13,7 @@ import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as taskRouter } from './routes/task.js'
 import { router as goalListsRouter } from './routes/goalList.js'
+import { router as categoryRouter } from './routes/category.js'
 
 // create the express app
 const app = express()
@@ -28,6 +29,7 @@ app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/task', taskRouter)
 app.use('/api/goalLists', goalListsRouter)
+app.use('/api/categories', categoryRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {
