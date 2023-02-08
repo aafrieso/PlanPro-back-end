@@ -4,9 +4,9 @@ const Schema = mongoose.Schema
 
 
 const quoteSchema = new Schema({
-  title: {
+  quote: {
     type: String,
-  },
+  }
 }, {  
   timestamps: true,
 })
