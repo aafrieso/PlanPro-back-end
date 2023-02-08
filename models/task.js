@@ -21,7 +21,11 @@ const taskSchema = new Schema(
     time: "string",
     steps: [stepSchema],
     category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
-    owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
+    owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    isComplete: { 
+      type: Boolean,
+      default: false
+    }
   }
 )
 
