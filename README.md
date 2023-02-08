@@ -1,3 +1,3 @@
-# Welcome and Thank you for your interest in PlanPro!
+# Welcome and Thank you for your interest in PlanPro
 
-Please visit [PlanPro Front End] to checout out our README and to see more information.
+Please visit [PlanPro Front End](https://github.com/Primemerlinian/PlanPro-front-end/blob/main/README.md) to checkout our README and to see more information
