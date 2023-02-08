@@ -27,7 +27,7 @@ app.use(formData.parse())
 // mount imported routes
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('/api/task', taskRouter)
+app.use('/api/tasks', taskRouter)
 app.use('/api/goalLists', goalListsRouter)
 app.use('/api/categories', categoryRouter)
 
