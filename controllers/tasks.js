@@ -66,8 +66,7 @@ const createStep = async (req, res) => {
     const task = await Task.findById(req.params.id)
     task.steps.push(req.body)
     await task.save()
-    const newStep = task.steps[task.steps.length - 1]
-    res.status(201).json(newStep)
+    res.status(201).json(task)
   } catch (error) {
     res.status(500).json(error)
   }
