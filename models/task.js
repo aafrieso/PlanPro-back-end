@@ -20,7 +20,6 @@ const taskSchema = new Schema(
     date: Date,
     time: "string",
     steps: [stepSchema],
-    category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
     owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
     isComplete: { 
       type: Boolean,

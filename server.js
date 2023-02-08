@@ -29,7 +29,7 @@ app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/tasks', taskRouter)
 app.use('/api/goalLists', goalListsRouter)
-app.use('/api/categories', quoteRouter)
+app.use('/api/quotes', quoteRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {

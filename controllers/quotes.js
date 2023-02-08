@@ -1,4 +1,4 @@
-import { Qutoes } from "../models/quote.js";
+import { Quotes } from "../models/quote.js";
 
 const createQuote = async (req, res) => {
   try {

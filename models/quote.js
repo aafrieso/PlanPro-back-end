@@ -12,6 +12,6 @@ const quoteSchema = new Schema({
 })
 
 
-const Quote = mongoose.model('Quote', quoteSchema)
+const Quotes = mongoose.model('Quote', quoteSchema)
 
-export { Quote }
+export { Quotes }
