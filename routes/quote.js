@@ -1,10 +1,10 @@
 import { Router } from "express"
-import * as categoryCtrl from "../controllers/categories.js"
+import * as quoteCtrl from "../controllers/quotes.js"
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 const router = Router ()
 
 router.use(decodeUserFromToken)
-router.post('/task/:id/categories', checkAuth, categoryCtrl.createCategory) 
+router.post('/', checkAuth, quoteCtrl.createQuote) 
 
 export { router }
